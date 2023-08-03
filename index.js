@@ -42,7 +42,7 @@ const { arrayUpdateScenario } = require("./cronJon/cronJob");
 // cronJob.schedule("30 19 * * 1-5", attendanceCheckOut);
 // cronJob.schedule("30 19 * * 1-5", absentScenario);
 
-cronJob.schedule("* * * * * *", arrayUpdateScenario);
+cronJob.schedule("0 0 * * *", arrayUpdateScenario);
 
 app.use("/", Router);
 
