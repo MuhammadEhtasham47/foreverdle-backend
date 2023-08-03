@@ -1,3 +1,4 @@
+require("dotenv").config();
 const Router = require("./routes/index");
 var mongoose = require("mongoose");
 var cors = require("cors");
@@ -46,9 +47,19 @@ cronJob.schedule("0 0 * * *", arrayUpdateScenario);
 
 app.use("/", Router);
 
-var port = 3000;
+var port = process.env.PORT || 3001;
 
-app.listen(port, (err) => {
-  if (err) console.log("err");
-  console.log(`server is running on port ${port}`);
-});
+var env = process.env.NODE_ENV;
+
+if (env == "development") {
+  app.listen(process.env.PORT, (err) => {
+    if (err) console.log("err");
+    console.log(`server is running on port ${port}`);
+  });
+} else {
+  console.log("now in production");
+  app.listen(process.env.PORT, (err) => {
+    if (err) console.log("err");
+    console.log(`server is running on port ${process.env.PORT}`);
+  });
+}
