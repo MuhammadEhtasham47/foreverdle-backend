@@ -5757,4 +5757,5 @@ const totalWordsArray = [
   "biffy",
   "pupal",
 ];
+
 module.exports = totalWordsArray;
